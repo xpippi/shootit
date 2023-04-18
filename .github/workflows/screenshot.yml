@@ -4,8 +4,8 @@ on:
   [ push, pull_request, workflow_dispatch ]
 
 jobs:
-  screenshot-ubuntu:
-    name: Screenshot (Ubuntu)
+  Proof-ubuntu:
+    name: Proof (Ubuntu)
     strategy:
       matrix:
         os: [ubuntu-latest]
@@ -17,17 +17,17 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Capture Screenshot
-      id: screenshot
+    - name: Capture Proof
+      id: Proof
       uses: ./
       with:
-        source: https://github.com/swinton/screenshot-website
-        destination: github-com-swinton-screenshot-website-${{ matrix.os }}-${{ matrix.width }}.png
+        source: https://github.com/xpippi/shootit
+        destination: github-com-xpippi-Proof-website-${{ matrix.os }}-${{ matrix.width }}.png
         full-page: true
         width: ${{ matrix.width }}
 
-  screenshot-macos:
-    name: Screenshot (macOS)
+  Proof-macos:
+    name: Proof (macOS)
     strategy:
       matrix:
         os: [macos-latest]
@@ -39,17 +39,17 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Capture Screenshot
-      id: screenshot
+    - name: Capture Proof
+      id: Proof
       uses: ./
       with:
-        source: https://github.com/swinton/screenshot-website
-        destination: github-com-swinton-screenshot-website-${{ matrix.os }}-${{ matrix.width }}.png
+        source: https://github.com/xpippi/shootit
+        destination: github-com-xpippi-Proof-website-${{ matrix.os }}-${{ matrix.width }}.png
         full-page: true
         width: ${{ matrix.width }}
 
-  screenshot-windows:
-    name: Screenshot (Windows)
+  Proof-windows:
+    name: Proof (Windows)
     strategy:
       matrix:
         os: [windows-latest]
@@ -61,17 +61,17 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Capture Screenshot
-      id: screenshot
+    - name: Capture Proof
+      id: Proof
       uses: ./
       with:
-        source: https://github.com/swinton/screenshot-website
-        destination: github-com-swinton-screenshot-website-${{ matrix.os }}-${{ matrix.width }}.png
+        source: https://github.com/xpippi/shootit
+        destination: github-com-xpippi-Proof-website-${{ matrix.os }}-${{ matrix.width }}.png
         full-page: true
         width: ${{ matrix.width }}
 
-  screenshot-no-width:
-    name: Screenshot (no width)
+  Proof-no-width:
+    name: Proof (no width)
     runs-on: ubuntu-latest
 
     steps:
@@ -79,10 +79,10 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Capture Screenshot
-      id: screenshot
+    - name: Capture Proof
+      id: Proof
       uses: ./
       with:
-        source: https://github.com/swinton/screenshot-website
-        destination: github-com-swinton-screenshot-website-ubuntu-latest-default.png
+        source: https://github.com/xpippi/shootit
+        destination: github-com-xpippi-Proof-website-ubuntu-latest-default.png
         full-page: true
