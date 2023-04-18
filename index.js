@@ -37,7 +37,7 @@ async function run() {
     const artifactName = destFile.substr(0, destFile.lastIndexOf('.'));
     const uploadResult = await artifactClient.uploadArtifact(artifactName, [dest], destFolder);
 
-    // Expose the path to the screenshot as an output
+    // Expose the path to the proof as an output
     core.setOutput('path', dest);
   } catch (error) {
     core.setFailed(error.message);
