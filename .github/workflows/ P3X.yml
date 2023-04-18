@@ -1,0 +1,65 @@
+name: P3X
+
+on:
+  push:
+    branches:
+      - v1.x
+  workflow_dispatch:
+
+jobs:
+  Proof-ubuntu:
+    name: Proof (Ubuntu)
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        width: [1200, 992, 768, 600]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+
+    - name: Capture Proof
+      id: Proof
+      uses: xpippi/shootit@v1.x
+      with:
+        source: https://github.com/xpippi/shootit
+        destination: github-com-xpippi-Proof-website-${{ matrix.os }}-${{ matrix.width }}.png
+        full-page: true
+        width: ${{ matrix.width }}
+
+  Proof-macos:
+    name: Proof (macOS)
+    strategy:
+      matrix:
+        os: [macos-latest]
+        width: [1200, 992, 768, 600]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+
+    - name: Capture Proof
+      id: Proof
+      uses: xpippi/shootit@v1.x
+      with:
+        source: https://github.com/xpippi/shootit
+        destination: github-com-xpippi-Proof-website-${{ matrix.os }}-${{ matrix.width }}.png
+        full-page: true
+        width: ${{ matrix.width }}
+
+  Proof-windows:
+    name: Proof (Windows)
+    strategy:
+      matrix:
+        os: [windows-latest]
+        width: [1200, 992, 768, 600]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+
+    - name: Capture Proof
+      id: Proof
+      uses: xpippi/shootit@v1.x
+      with:
+        source: https://github.com/xpippi/shootit
+        destination: github-com-xpippi-Proof-website-${{ matrix.os }}-${{ matrix.width }}.png
+        full-page: true
+        width: ${{ matrix.width }}
