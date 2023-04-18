@@ -1,14 +1,14 @@
 {
-  "name": "screenshot-url",
+  "name": "proof-url",
   "version": "1.0.1",
   "description": "",
-  "author": "Steve Winton <stevewinton@gmail.com> (https://github.com/swinton)",
+  "author": "Steve Winton <stevewinton@gmail.com> (https://github.com/xpippi)",
   "main": "index.js",
   "license": "ISC",
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/swinton/screenshot-url.git"
+    "url": "git+https://github.com/xpippi/proof-url.git"
   },
   "scripts": {
     "start": "node ./index.js",

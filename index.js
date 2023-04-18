@@ -3,6 +3,7 @@ const captureWebsite = require('capture-website');
 const core = require('@actions/core');
 const artifact = require('@actions/artifact');
 const loadInputs = require('./lib/load-inputs');
+const whichChrome = require('./lib/which-chrome');
 
 async function run() {
   try {
@@ -17,15 +18,7 @@ async function run() {
     const dest = path.join(destFolder, destFile);
 
     // Locate Google Chrome executable
-    // "google-chrome" on Linux
-    // "chrome.exe" on Windows
-    // "Google Chrome" on macOSs
-    const executables = {
-      Linux: '/usr/bin/google-chrome',
-      Windows: 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
-      macOS: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
-    };
-    const executablePath = executables[process.env.RUNNER_OS];
+    const executablePath = await whichChrome();
     core.debug(`executablePath is ${executablePath}`);
 
     // Options for capture
@@ -44,7 +37,7 @@ async function run() {
     const artifactName = destFile.substr(0, destFile.lastIndexOf('.'));
     const uploadResult = await artifactClient.uploadArtifact(artifactName, [dest], destFolder);
 
-    // Expose the path to the screenshot as an output
+    // Expose the path to the proof as an output
     core.setOutput('path', dest);
   } catch (error) {
     core.setFailed(error.message);

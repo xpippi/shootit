@@ -1,5 +1,5 @@
-# :camera_flash: `screenshot-website` ![](https://github.com/swinton/screenshot-website/workflows/Tests/badge.svg)
-> A GitHub Action to capture screenshots of a website, across Windows, Mac, and Linux
+# :camera_flash: `shootit` ![](https://github.com/xpippi/shootit/workflows/Tests/badge.svg)
+> A GitHub Action to capture proofs of a website, across Windows, Mac, and Linux
 
 ## Contents
 - [Usage](#usage)
@@ -11,11 +11,11 @@
 ## Usage
 
 ```yaml
-- name: Screenshot Website
-  uses: swinton/screenshot-website@v1.x
+- name: Proof Website
+  uses: xpippi/shootit@v1.x
   with:
-    source: https://github.com/swinton/screenshot-website
-    destination: screenshot.png
+    source: https://github.com/xpippi/shootit
+    destination: proof.png
 ```
 
 ## Inputs
@@ -23,35 +23,33 @@
 ### Required inputs
 
 1. `source`: Source of the content to be captured, may be a URL or HTML string, e.g. `https://example.com/`
-1. `destination`: Destination filename the captured website will be written to, defaults to `screenshot.png`
+1. `destination`: Destination filename the captured website will be written to, defaults to `proof.png`
 
 ### Optional inputs
 
-_Most_ of the options listed [here](https://github.com/sindresorhus/capture-website#options) (`inputType`, `width`, `height`, etc.) can be passed as inputs, just pass in a [kebab-cased](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles) equivalent, e.g. `full-page` for [`fullPage`](https://github.com/sindresorhus/capture-website#fullpage):
-
 ```yaml
-- name: Screenshot Website
-  uses: swinton/screenshot-website@v1.x
+- name: Proof Website
+  uses: xpippi/shootit@v1.x
   with:
-    source: https://github.com/swinton/screenshot-website
-    destination: screenshot.png
+    source: https://github.com/xpippi/shootit
+    destination: proof.png
     full-page: true
 ```
 
 ## Outputs
 
-An [artifact](https://help.github.com/en/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts) will be created automatically for each screenshot captured. The following additional outputs are also supported:
+An [artifact](https://help.github.com/en/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts) will be created automatically for each proof captured. The following additional outputs are also supported:
 
-1. `path`: The filesystem path to the captured screenshot
+1. `path`: The filesystem path to the captured proof
 
 ## Advanced Usage
 
-Use a matrix to capture screenshots across different operating systems, e.g.
+Use a matrix to capture proofs across different operating systems, e.g.
 
 ```yaml
 jobs:
-  screenshot:
-    name: Screenshot
+  proof:
+    name: Proof
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
@@ -59,19 +57,19 @@ jobs:
 
     steps:
 
-    - name: Screenshot Website
-      uses: swinton/screenshot-website@v1.x
+    - name: Proof Website
+      uses: xpippi/shootit@v1.x
       with:
-        source: https://github.com/swinton/screenshot-website
-        destination: screenshot-${{ matrix.os }}.png
+        source: https://github.com/xpippi/shootit
+        destination: proof-${{ matrix.os }}.png
 ```
 
 Combine a matrix with additional options such as width, e.g.
 
 ```yaml
 jobs:
-  screenshot:
-    name: Screenshot
+  proof:
+    name: Proof
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
@@ -80,15 +78,13 @@ jobs:
 
     steps:
 
-    - name: Screenshot Website
-      uses: swinton/screenshot-website@v1.x
+    - name: Proof Website
+      uses: xpippi/shootit@v1.x
       with:
-        source: https://github.com/swinton/screenshot-website
-        destination: screenshot-${{ matrix.os }}-${{ matrix.width }}.png
+        source: https://github.com/xpippi/shootit
+        destination: proof-${{ matrix.os }}-${{ matrix.width }}.png
         width: ${{ matrix.width }}
 ```
 
 
-## Credits
-
-- :bow: https://github.com/sindresorhus/capture-website
+## Credit card declined

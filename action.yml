@@ -1,5 +1,5 @@
-name: 'screenshot-website'
-description: 'Capture screenshot of a website'
+name: 'shootit'
+description: 'Capture proof of a website'
 inputs:
   source:
     description: 'Source of the content to be captured, may be a URL or HTML content'
@@ -7,18 +7,22 @@ inputs:
   destination:
     description: 'The destination filename the captured website will be written to'
     required: false
-    default: 'screenshot.png'
+    default: 'proof.png'
   delay:
-    description: 'The number of seconds to wait after the page finished loading before capturing the screenshot'
+    description: 'The number of seconds to wait after the page finished loading before capturing the proof'
     required: false
-    default: 0
+    default: '0'
   full-page:
     description: 'Capture the full scrollable page, not just the viewport'
     required: false
-    default: false
+    default: 'false'
+  width:
+    description: 'Page width'
+    required: false
+    default: '1280'
 outputs:
   path:
-    description: 'The filesystem path to the website screenshot'
+    description: 'The filesystem path to the website proof'
 runs:
   using: 'node12'
   main: 'dist/index.js'
